@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//DBFLUTE//DTD LastaDi 1.0//EN" 
+	"http://dbflute.org/meta/lastadi10.dtd">
+<components namespace="dbflute">
+	<include condition="#exists('#path')" path="my_included_dbflute.xml"/>
+	<include path="rdb.xml"/>
+
+	<!-- The components of DBFlute Runtime. -->
+	<component name="introduction" class="org.door.dbflute.allcommon.DBFluteInitializer"/>
+	<component name="invokerAssistant" class="org.door.dbflute.allcommon.ImplementedInvokerAssistant"/>
+	<component name="behaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+	<component name="behaviorSelector" class="org.door.dbflute.allcommon.ImplementedBehaviorSelector"/>
+	<component name="commonColumnAutoSetupper" class="org.door.dbflute.allcommon.ImplementedCommonColumnAutoSetupper"/>
+
+	<!-- The components of Behavior. -->
+	<component name="memberBhv" class="org.door.dbflute.exbhv.MemberBhv"/>
+	<component name="memberAddressBhv" class="org.door.dbflute.exbhv.MemberAddressBhv"/>
+	<component name="memberFollowingBhv" class="org.door.dbflute.exbhv.MemberFollowingBhv"/>
+	<component name="memberLoginBhv" class="org.door.dbflute.exbhv.MemberLoginBhv"/>
+	<component name="memberSecurityBhv" class="org.door.dbflute.exbhv.MemberSecurityBhv"/>
+	<component name="memberServiceBhv" class="org.door.dbflute.exbhv.MemberServiceBhv"/>
+	<component name="memberStatusBhv" class="org.door.dbflute.exbhv.MemberStatusBhv"/>
+	<component name="memberWithdrawalBhv" class="org.door.dbflute.exbhv.MemberWithdrawalBhv"/>
+	<component name="productBhv" class="org.door.dbflute.exbhv.ProductBhv"/>
+	<component name="productCategoryBhv" class="org.door.dbflute.exbhv.ProductCategoryBhv"/>
+	<component name="productStatusBhv" class="org.door.dbflute.exbhv.ProductStatusBhv"/>
+	<component name="purchaseBhv" class="org.door.dbflute.exbhv.PurchaseBhv"/>
+	<component name="purchasePaymentBhv" class="org.door.dbflute.exbhv.PurchasePaymentBhv"/>
+	<component name="regionBhv" class="org.door.dbflute.exbhv.RegionBhv"/>
+	<component name="serviceRankBhv" class="org.door.dbflute.exbhv.ServiceRankBhv"/>
+	<component name="withdrawalReasonBhv" class="org.door.dbflute.exbhv.WithdrawalReasonBhv"/>
+</components>
