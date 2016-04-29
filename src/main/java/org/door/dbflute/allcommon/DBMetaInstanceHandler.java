@@ -46,22 +46,8 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
     protected static final Map<String, String> _tableDbNameClassNameMap;
     static {
         final Map<String, String> tmpMap = newHashMap();
-        tmpMap.put("MEMBER", "org.door.dbflute.bsentity.dbmeta.MemberDbm");
-        tmpMap.put("MEMBER_ADDRESS", "org.door.dbflute.bsentity.dbmeta.MemberAddressDbm");
-        tmpMap.put("MEMBER_FOLLOWING", "org.door.dbflute.bsentity.dbmeta.MemberFollowingDbm");
-        tmpMap.put("MEMBER_LOGIN", "org.door.dbflute.bsentity.dbmeta.MemberLoginDbm");
-        tmpMap.put("MEMBER_SECURITY", "org.door.dbflute.bsentity.dbmeta.MemberSecurityDbm");
-        tmpMap.put("MEMBER_SERVICE", "org.door.dbflute.bsentity.dbmeta.MemberServiceDbm");
-        tmpMap.put("MEMBER_STATUS", "org.door.dbflute.bsentity.dbmeta.MemberStatusDbm");
-        tmpMap.put("MEMBER_WITHDRAWAL", "org.door.dbflute.bsentity.dbmeta.MemberWithdrawalDbm");
-        tmpMap.put("PRODUCT", "org.door.dbflute.bsentity.dbmeta.ProductDbm");
-        tmpMap.put("PRODUCT_CATEGORY", "org.door.dbflute.bsentity.dbmeta.ProductCategoryDbm");
-        tmpMap.put("PRODUCT_STATUS", "org.door.dbflute.bsentity.dbmeta.ProductStatusDbm");
-        tmpMap.put("PURCHASE", "org.door.dbflute.bsentity.dbmeta.PurchaseDbm");
-        tmpMap.put("PURCHASE_PAYMENT", "org.door.dbflute.bsentity.dbmeta.PurchasePaymentDbm");
-        tmpMap.put("REGION", "org.door.dbflute.bsentity.dbmeta.RegionDbm");
-        tmpMap.put("SERVICE_RANK", "org.door.dbflute.bsentity.dbmeta.ServiceRankDbm");
-        tmpMap.put("WITHDRAWAL_REASON", "org.door.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
+        tmpMap.put("door", "org.door.dbflute.bsentity.dbmeta.DoorDbm");
+        tmpMap.put("door_sensor_log", "org.door.dbflute.bsentity.dbmeta.DoorSensorLogDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }
 

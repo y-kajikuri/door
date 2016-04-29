@@ -27,7 +27,6 @@
 map:{
     # *REGION is the example table on doordb (that cannot pass identityIfPureIDPK)
     # so remove it and this comment after beginning of your DB design
-    ; tableExceptList = list:{ REGION }
     ; tableTargetList = list:{}
     ; tableMap = map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }

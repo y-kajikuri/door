@@ -112,18 +112,94 @@ p.tablecount {
 </head>
 
 <body>
-<h1>History for doordb (h2)</h1>
+<h1>History for doordb (mysql)</h1>
 <div class="navilinkarea">
 <p class="sisterlink"><a href="./schema-doordb.html">to SchemaHTML</a></p>
 <p class="sistersublink"><a href="./properties-doordb.html">to PropertiesHTML</a></p>
 </div>
 
 <div class="section">
+	<h2><span class="dt">Diff Date: </span>2016/04/29 22:00:56</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-doordb.html#door">DOOR</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>DOOR_ID</dt>
+				<dd><span>Identity</span>false&nbsp;-&gt;&nbsp;true</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2016/04/29 22:00:15</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>DOOR_SENSOR_LOG</h4>
+		<div class="change-table-content">
+			<h5>Change Index</h5>
+			<dl class="column-content">
+				<dt>INDEX_DOOR_ID_REGISTER_DATETIME</dt>
+				<dd><span>Column</span>REGISTER_DATETIME&nbsp;-&gt;&nbsp;REGISTER_DATETIME,&nbsp;DOOR_ID</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2016/04/29 21:56:23</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>DOOR</h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MIN</dt>
+				<dd><span>Not Null</span>false&nbsp;-&gt;&nbsp;true</dd>
+				<dt>MAX</dt>
+				<dd><span>Not Null</span>false&nbsp;-&gt;&nbsp;true</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2016/04/29 21:52:22</h2>
+	<p class="tablecount"><span class="dt">table count: </span>16&nbsp;-&gt;&nbsp;2</p>
+
+	<h3>Add Table</h3>
+	<ul class="table-content">
+		<li>DOOR</li>
+		<li>DOOR_SENSOR_LOG</li>
+	</ul>
+	<h3>Delete Table</h3>
+	<ul class="table-content">
+		<li>MEMBER</li>
+		<li>MEMBER_ADDRESS</li>
+		<li>MEMBER_FOLLOWING</li>
+		<li>MEMBER_LOGIN</li>
+		<li>MEMBER_SECURITY</li>
+		<li>MEMBER_SERVICE</li>
+		<li>MEMBER_STATUS</li>
+		<li>MEMBER_WITHDRAWAL</li>
+		<li>PRODUCT</li>
+		<li>PRODUCT_CATEGORY</li>
+		<li>PRODUCT_STATUS</li>
+		<li>PURCHASE</li>
+		<li>PURCHASE_PAYMENT</li>
+		<li>REGION</li>
+		<li>SERVICE_RANK</li>
+		<li>WITHDRAWAL_REASON</li>
+	</ul>
+</div>
+<div class="section">
 	<h2><span class="dt">Diff Date: </span>2015/12/02 23:48:43</h2>
 
 	<h3>Change Table</h3>
 	<div class="table-content">
-		<h4><a href="./schema-doordb.html#member">MEMBER</a></h4>
+		<h4>MEMBER</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">

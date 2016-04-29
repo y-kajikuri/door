@@ -42,7 +42,7 @@ public class DBCurrent {
 
     protected DBDef _currentDBDef;
     {
-        _currentDBDef = DBDef.codeOf("h2");
+        _currentDBDef = DBDef.codeOf("mysql");
         if (_currentDBDef == null) {
             _currentDBDef = DBDef.Unknown;
         }
@@ -73,7 +73,7 @@ public class DBCurrent {
     //                                                                        ============
     /**
      * Get project name of the database (DBFlute client).
-     * @return The name string, lower case in many cases. e.g. doordb (NotNull)
+     * @return The name string, lower case in many cases. e.g. maihamadb (NotNull)
      */
     public String projectName() {
         return _projectName;
