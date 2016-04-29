@@ -11,7 +11,7 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
-	<x>15</x>
+	<x>239</x>
 	<y>0</y>
 	<default_color>
 		<r>255</r>
@@ -115,7 +115,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2013-07-01 19:43:02</creation_date>
-			<updated_date>2016-04-29 22:12:23</updated_date>
+			<updated_date>2016-04-29 22:28:45</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -266,7 +266,7 @@
 			<args></args>
 			<description>ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。</description>
 			<logical_name>センサー距離</logical_name>
-			<physical_name>SENSOR_DISTATNCE</physical_name>
+			<physical_name>SENSOR_DISTANCE</physical_name>
 			<type>integer</type>
 		</word>
 		<word>

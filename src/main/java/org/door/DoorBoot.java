@@ -26,7 +26,7 @@ public class DoorBoot { // #change_it_first
         new TomcatBoot(9001, "/door").asDevelopment().bootAwait();
     }
 
-    //    private static boolean isNoneEnv() {
-    //        return System.getProperty("lasta.env") == null;
-    //    }
+    private static boolean isNoneEnv() {
+        return System.getProperty("lasta.env") == null;
+    }
 }
