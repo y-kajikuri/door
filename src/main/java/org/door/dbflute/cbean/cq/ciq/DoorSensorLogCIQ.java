@@ -79,9 +79,8 @@ public class DoorSensorLogCIQ extends AbstractBsDoorSensorLogCQ {
     protected ConditionValue xgetCValueDoorSensorLogId() { return _myCQ.xdfgetDoorSensorLogId(); }
     protected ConditionValue xgetCValueDoorId() { return _myCQ.xdfgetDoorId(); }
     protected ConditionValue xgetCValueDoorStatis() { return _myCQ.xdfgetDoorStatis(); }
-    protected ConditionValue xgetCValueSensorDistatnce() { return _myCQ.xdfgetSensorDistatnce(); }
+    protected ConditionValue xgetCValueSensorDistance() { return _myCQ.xdfgetSensorDistance(); }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
-    protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(DoorSensorLogCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

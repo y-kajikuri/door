@@ -61,9 +61,8 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorSensorLogId(), (et, vl) -> ((DoorSensorLog)et).setDoorSensorLogId(cti(vl)), "doorSensorLogId");
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorId(), (et, vl) -> ((DoorSensorLog)et).setDoorId(cti(vl)), "doorId");
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorStatis(), (et, vl) -> ((DoorSensorLog)et).setDoorStatis((Boolean)vl), "doorStatis");
-        setupEpg(_epgMap, et -> ((DoorSensorLog)et).getSensorDistatnce(), (et, vl) -> ((DoorSensorLog)et).setSensorDistatnce(cti(vl)), "sensorDistatnce");
+        setupEpg(_epgMap, et -> ((DoorSensorLog)et).getSensorDistance(), (et, vl) -> ((DoorSensorLog)et).setSensorDistance(cti(vl)), "sensorDistance");
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getRegisterDatetime(), (et, vl) -> ((DoorSensorLog)et).setRegisterDatetime(ctldt(vl)), "registerDatetime");
-        setupEpg(_epgMap, et -> ((DoorSensorLog)et).getRegisterUser(), (et, vl) -> ((DoorSensorLog)et).setRegisterUser((String)vl), "registerUser");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -101,9 +100,8 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnDoorSensorLogId = cci("DOOR_SENSOR_LOG_ID", "DOOR_SENSOR_LOG_ID", null, "ドアセンサーログID", Integer.class, "doorSensorLogId", null, true, true, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDoorId = cci("DOOR_ID", "DOOR_ID", null, "ドアID", Integer.class, "doorId", null, false, false, true, "INT", 10, 0, null, false, null, null, "door", null, null, false);
     protected final ColumnInfo _columnDoorStatis = cci("DOOR_STATIS", "DOOR_STATIS", null, "ドアステータス", Boolean.class, "doorStatis", null, false, false, true, "BIT", null, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnSensorDistatnce = cci("SENSOR_DISTATNCE", "SENSOR_DISTATNCE", null, "センサー距離", Integer.class, "sensorDistatnce", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, "登録ユーザー", String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSensorDistance = cci("SENSOR_DISTANCE", "SENSOR_DISTANCE", null, "センサー距離", Integer.class, "sensorDistance", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
 
     /**
      * (ドアセンサーログID)DOOR_SENSOR_LOG_ID: {PK, ID, NotNull, INT(10)}
@@ -111,7 +109,7 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnDoorSensorLogId() { return _columnDoorSensorLogId; }
     /**
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDoorId() { return _columnDoorId; }
@@ -121,29 +119,23 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnDoorStatis() { return _columnDoorStatis; }
     /**
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnSensorDistatnce() { return _columnSensorDistatnce; }
+    public ColumnInfo columnSensorDistance() { return _columnSensorDistance; }
     /**
-     * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegisterDatetime() { return _columnRegisterDatetime; }
-    /**
-     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnRegisterUser() { return _columnRegisterUser; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnDoorSensorLogId());
         ls.add(columnDoorId());
         ls.add(columnDoorStatis());
-        ls.add(columnSensorDistatnce());
+        ls.add(columnSensorDistance());
         ls.add(columnRegisterDatetime());
-        ls.add(columnRegisterUser());
         return ls;
     }
 
@@ -184,13 +176,6 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
     //                                                                        Various Info
     //                                                                        ============
     public boolean hasIdentity() { return true; }
-    public boolean hasCommonColumn() { return true; }
-    public List<ColumnInfo> getCommonColumnInfoList()
-    { return newArrayList(columnRegisterDatetime(), columnRegisterUser()); }
-    public List<ColumnInfo> getCommonColumnInfoBeforeInsertList()
-    { return newArrayList(columnRegisterDatetime(), columnRegisterUser()); }
-    public List<ColumnInfo> getCommonColumnInfoBeforeUpdateList()
-    { return newArrayList(); }
 
     // ===================================================================================
     //                                                                           Type Name

@@ -116,14 +116,14 @@ public class BsDoorSensorLogCQ extends AbstractBsDoorSensorLogCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @return this. (NotNull)
      */
     public BsDoorSensorLogCQ addOrderBy_DoorId_Asc() { regOBA("DOOR_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @return this. (NotNull)
      */
     public BsDoorSensorLogCQ addOrderBy_DoorId_Desc() { regOBD("DOOR_ID"); return this; }
@@ -148,25 +148,25 @@ public class BsDoorSensorLogCQ extends AbstractBsDoorSensorLogCQ {
      */
     public BsDoorSensorLogCQ addOrderBy_DoorStatis_Desc() { regOBD("DOOR_STATIS"); return this; }
 
-    protected ConditionValue _sensorDistatnce;
-    public ConditionValue xdfgetSensorDistatnce()
-    { if (_sensorDistatnce == null) { _sensorDistatnce = nCV(); }
-      return _sensorDistatnce; }
-    protected ConditionValue xgetCValueSensorDistatnce() { return xdfgetSensorDistatnce(); }
+    protected ConditionValue _sensorDistance;
+    public ConditionValue xdfgetSensorDistance()
+    { if (_sensorDistance == null) { _sensorDistance = nCV(); }
+      return _sensorDistance; }
+    protected ConditionValue xgetCValueSensorDistance() { return xdfgetSensorDistance(); }
 
     /** 
      * Add order-by as ascend. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsDoorSensorLogCQ addOrderBy_SensorDistatnce_Asc() { regOBA("SENSOR_DISTATNCE"); return this; }
+    public BsDoorSensorLogCQ addOrderBy_SensorDistance_Asc() { regOBA("SENSOR_DISTANCE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
      * @return this. (NotNull)
      */
-    public BsDoorSensorLogCQ addOrderBy_SensorDistatnce_Desc() { regOBD("SENSOR_DISTATNCE"); return this; }
+    public BsDoorSensorLogCQ addOrderBy_SensorDistance_Desc() { regOBD("SENSOR_DISTANCE"); return this; }
 
     protected ConditionValue _registerDatetime;
     public ConditionValue xdfgetRegisterDatetime()
@@ -176,37 +176,17 @@ public class BsDoorSensorLogCQ extends AbstractBsDoorSensorLogCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsDoorSensorLogCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsDoorSensorLogCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
-
-    protected ConditionValue _registerUser;
-    public ConditionValue xdfgetRegisterUser()
-    { if (_registerUser == null) { _registerUser = nCV(); }
-      return _registerUser; }
-    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
-
-    /** 
-     * Add order-by as ascend. <br>
-     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
-     * @return this. (NotNull)
-     */
-    public BsDoorSensorLogCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
-     * @return this. (NotNull)
-     */
-    public BsDoorSensorLogCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy

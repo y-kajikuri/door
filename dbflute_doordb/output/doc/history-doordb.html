@@ -119,11 +119,39 @@ p.tablecount {
 </div>
 
 <div class="section">
+	<h2><span class="dt">Diff Date: </span>2016/04/30 18:08:31</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-doordb.html#door_sensor_log">DOOR_SENSOR_LOG</a></h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>SENSOR_DISTANCE</li>
+			</ul>
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>SENSOR_DISTATNCE</li>
+				<li>REGISTER_USER</li>
+			</ul>
+			<h5>Change Index</h5>
+			<dl class="column-content">
+				<dt>INDEX_DOOR_ID_REGISTER_DATETIME</dt>
+				<dd><span>Column</span>REGISTER_DATETIME,&nbsp;DOOR_ID&nbsp;-&gt;&nbsp;DOOR_ID</dd>
+			</dl>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>DOOR_ID</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section">
 	<h2><span class="dt">Diff Date: </span>2016/04/29 22:00:56</h2>
 
 	<h3>Change Table</h3>
 	<div class="table-content">
-		<h4><a href="./schema-doordb.html#door">DOOR</a></h4>
+		<h4>DOOR</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">

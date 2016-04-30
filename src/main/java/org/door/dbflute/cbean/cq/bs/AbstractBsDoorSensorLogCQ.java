@@ -189,7 +189,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorId The value of doorId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_Equal(Integer doorId) {
@@ -202,7 +202,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorId The value of doorId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_NotEqual(Integer doorId) {
@@ -215,7 +215,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorId The value of doorId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_GreaterThan(Integer doorId) {
@@ -224,7 +224,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorId The value of doorId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_LessThan(Integer doorId) {
@@ -233,7 +233,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorId The value of doorId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_GreaterEqual(Integer doorId) {
@@ -242,7 +242,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorId The value of doorId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_LessEqual(Integer doorId) {
@@ -253,7 +253,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param minNumber The min number of doorId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of doorId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -266,7 +266,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param minNumber The min number of doorId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of doorId. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -277,7 +277,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorIdList The collection of doorId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDoorId_InScope(Collection<Integer> doorIdList) {
@@ -290,7 +290,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+     * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
      * @param doorIdList The collection of doorId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDoorId_NotInScope(Collection<Integer> doorIdList) {
@@ -318,124 +318,124 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnce The value of sensorDistatnce as equal. (basically NotNull: error as default, or no condition as option)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistance The value of sensorDistance as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setSensorDistatnce_Equal(Integer sensorDistatnce) {
-        doSetSensorDistatnce_Equal(sensorDistatnce);
+    public void setSensorDistance_Equal(Integer sensorDistance) {
+        doSetSensorDistance_Equal(sensorDistance);
     }
 
-    protected void doSetSensorDistatnce_Equal(Integer sensorDistatnce) {
-        regSensorDistatnce(CK_EQ, sensorDistatnce);
+    protected void doSetSensorDistance_Equal(Integer sensorDistance) {
+        regSensorDistance(CK_EQ, sensorDistance);
     }
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnce The value of sensorDistatnce as notEqual. (basically NotNull: error as default, or no condition as option)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistance The value of sensorDistance as notEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setSensorDistatnce_NotEqual(Integer sensorDistatnce) {
-        doSetSensorDistatnce_NotEqual(sensorDistatnce);
+    public void setSensorDistance_NotEqual(Integer sensorDistance) {
+        doSetSensorDistance_NotEqual(sensorDistance);
     }
 
-    protected void doSetSensorDistatnce_NotEqual(Integer sensorDistatnce) {
-        regSensorDistatnce(CK_NES, sensorDistatnce);
+    protected void doSetSensorDistance_NotEqual(Integer sensorDistance) {
+        regSensorDistance(CK_NES, sensorDistance);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnce The value of sensorDistatnce as greaterThan. (basically NotNull: error as default, or no condition as option)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistance The value of sensorDistance as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setSensorDistatnce_GreaterThan(Integer sensorDistatnce) {
-        regSensorDistatnce(CK_GT, sensorDistatnce);
+    public void setSensorDistance_GreaterThan(Integer sensorDistance) {
+        regSensorDistance(CK_GT, sensorDistance);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnce The value of sensorDistatnce as lessThan. (basically NotNull: error as default, or no condition as option)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistance The value of sensorDistance as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setSensorDistatnce_LessThan(Integer sensorDistatnce) {
-        regSensorDistatnce(CK_LT, sensorDistatnce);
+    public void setSensorDistance_LessThan(Integer sensorDistance) {
+        regSensorDistance(CK_LT, sensorDistance);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnce The value of sensorDistatnce as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistance The value of sensorDistance as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setSensorDistatnce_GreaterEqual(Integer sensorDistatnce) {
-        regSensorDistatnce(CK_GE, sensorDistatnce);
+    public void setSensorDistance_GreaterEqual(Integer sensorDistance) {
+        regSensorDistance(CK_GE, sensorDistance);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnce The value of sensorDistatnce as lessEqual. (basically NotNull: error as default, or no condition as option)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistance The value of sensorDistance as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setSensorDistatnce_LessEqual(Integer sensorDistatnce) {
-        regSensorDistatnce(CK_LE, sensorDistatnce);
+    public void setSensorDistance_LessEqual(Integer sensorDistance) {
+        regSensorDistance(CK_LE, sensorDistance);
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param minNumber The min number of sensorDistatnce. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sensorDistatnce. (NullAllowed: if null, no to-condition)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param minNumber The min number of sensorDistance. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of sensorDistance. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setSensorDistatnce_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setSensorDistatnce_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    public void setSensorDistance_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setSensorDistance_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param minNumber The min number of sensorDistatnce. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sensorDistatnce. (NullAllowed: if null, no to-condition)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param minNumber The min number of sensorDistance. (NullAllowed: if null, no from-condition)
+     * @param maxNumber The max number of sensorDistance. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    protected void setSensorDistatnce_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueSensorDistatnce(), "SENSOR_DISTATNCE", rangeOfOption);
+    protected void setSensorDistance_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueSensorDistance(), "SENSOR_DISTANCE", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnceList The collection of sensorDistatnce as inScope. (NullAllowed: if null (or empty), no condition)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistanceList The collection of sensorDistance as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setSensorDistatnce_InScope(Collection<Integer> sensorDistatnceList) {
-        doSetSensorDistatnce_InScope(sensorDistatnceList);
+    public void setSensorDistance_InScope(Collection<Integer> sensorDistanceList) {
+        doSetSensorDistance_InScope(sensorDistanceList);
     }
 
-    protected void doSetSensorDistatnce_InScope(Collection<Integer> sensorDistatnceList) {
-        regINS(CK_INS, cTL(sensorDistatnceList), xgetCValueSensorDistatnce(), "SENSOR_DISTATNCE");
+    protected void doSetSensorDistance_InScope(Collection<Integer> sensorDistanceList) {
+        regINS(CK_INS, cTL(sensorDistanceList), xgetCValueSensorDistance(), "SENSOR_DISTANCE");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
-     * @param sensorDistatnceList The collection of sensorDistatnce as notInScope. (NullAllowed: if null (or empty), no condition)
+     * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
+     * @param sensorDistanceList The collection of sensorDistance as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setSensorDistatnce_NotInScope(Collection<Integer> sensorDistatnceList) {
-        doSetSensorDistatnce_NotInScope(sensorDistatnceList);
+    public void setSensorDistance_NotInScope(Collection<Integer> sensorDistanceList) {
+        doSetSensorDistance_NotInScope(sensorDistanceList);
     }
 
-    protected void doSetSensorDistatnce_NotInScope(Collection<Integer> sensorDistatnceList) {
-        regINS(CK_NINS, cTL(sensorDistatnceList), xgetCValueSensorDistatnce(), "SENSOR_DISTATNCE");
+    protected void doSetSensorDistance_NotInScope(Collection<Integer> sensorDistanceList) {
+        regINS(CK_NINS, cTL(sensorDistanceList), xgetCValueSensorDistance(), "SENSOR_DISTANCE");
     }
 
-    protected void regSensorDistatnce(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSensorDistatnce(), "SENSOR_DISTATNCE"); }
-    protected abstract ConditionValue xgetCValueSensorDistatnce();
+    protected void regSensorDistance(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSensorDistance(), "SENSOR_DISTANCE"); }
+    protected abstract ConditionValue xgetCValueSensorDistance();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
@@ -443,9 +443,45 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
     }
 
     /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_GT,  registerDatetime);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_LT,  registerDatetime);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_GE,  registerDatetime);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_LessEqual(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_LE, registerDatetime);
+    }
+
+    /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
@@ -458,7 +494,7 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
@@ -471,22 +507,6 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "REGISTER_DATETIME"); }
     protected abstract ConditionValue xgetCValueRegisterDatetime();
-
-    /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
-     * @param registerUser The value of registerUser as equal. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setRegisterUser_Equal(String registerUser) {
-        doSetRegisterUser_Equal(fRES(registerUser));
-    }
-
-    protected void doSetRegisterUser_Equal(String registerUser) {
-        regRegisterUser(CK_EQ, registerUser);
-    }
-
-    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterUser(), "REGISTER_USER"); }
-    protected abstract ConditionValue xgetCValueRegisterUser();
 
     // ===================================================================================
     //                                                                     ScalarCondition

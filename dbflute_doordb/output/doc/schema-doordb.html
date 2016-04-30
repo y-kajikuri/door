@@ -317,7 +317,7 @@ dl.procedurelist dd.column pre {
 	<tr>
 		<td class="rownumcell">2</td>
 		<td class="aliascell">ドアセンサーログ</td>
-		<td><a href="#door_sensor_log" title="type=TABLE, primaryKey={DOOR_SENSOR_LOG_ID}, nameLength=15, columnCount=6">DOOR_SENSOR_LOG</a></td>
+		<td><a href="#door_sensor_log" title="type=TABLE, primaryKey={DOOR_SENSOR_LOG_ID}, nameLength=15, columnCount=5">DOOR_SENSOR_LOG</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#door" title="door_sensor_log_ibfk_1">DOOR</a></td>
 		<td class="relcell">&nbsp;</td>
@@ -424,7 +424,7 @@ dl.procedurelist dd.column pre {
 		<td class="subcell">Integer</td>
 	</tr>
 </table>
-<h2 id="door_sensor_log" title="type=TABLE, primaryKey={DOOR_SENSOR_LOG_ID}, nameLength=15, columnCount=6">
+<h2 id="door_sensor_log" title="type=TABLE, primaryKey={DOOR_SENSOR_LOG_ID}, nameLength=15, columnCount=5">
 (ドアセンサーログ)DOOR_SENSOR_LOG
 </h2>
 <p class="tablecomment">会員のプロフィールやアカウントなどの基本情報を保持する。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</p>
@@ -472,7 +472,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="DOOR_ID(DOOR_ID), INDEX_DOOR_ID_REGISTER_DATETIME(REGISTER_DATETIME, DOOR_ID)">o<span class="flgplus">+</span></td>
+		<td class="flgcell" title="INDEX_DOOR_ID_REGISTER_DATETIME(DOOR_ID)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">ドアID</td>
 		<td id="door_sensor_log_door_id">DOOR_ID</td>
@@ -511,14 +511,14 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">センサー距離</td>
-		<td id="door_sensor_log_sensor_distatnce">SENSOR_DISTATNCE</td>
+		<td id="door_sensor_log_sensor_distance">SENSOR_DISTANCE</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。</td>
-		<td class="subcell">sensorDistatnce</td>
+		<td class="subcell">sensorDistance</td>
 		<td class="subcell">Integer</td>
 	</tr>
 	<tr>
@@ -526,36 +526,18 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="INDEX_DOOR_ID_REGISTER_DATETIME(REGISTER_DATETIME, DOOR_ID)">o<span class="flgplus">+</span></td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell">登録日時</td>
-		<td class="comcolcell" id="door_sensor_log_register_datetime">REGISTER_DATETIME</td>
+		<td class="aliascell">登録日時</td>
+		<td id="door_sensor_log_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"> レコードが登録された日時</td>
+		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">6</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell">登録ユーザー</td>
-		<td class="comcolcell" id="door_sensor_log_register_user">REGISTER_USER</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"> レコードを登録したユーザー</td>
-		<td class="subcell">registerUser</td>
-		<td class="subcell">String</td>
 	</tr>
 </table>
 

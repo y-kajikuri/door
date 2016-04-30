@@ -23,7 +23,6 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-import org.door.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.door.dbflute.allcommon.DBMetaInstanceHandler;
 import org.door.dbflute.exentity.*;
 
@@ -37,7 +36,7 @@ import org.door.dbflute.exentity.*;
  *     DOOR_SENSOR_LOG_ID
  * 
  * [column]
- *     DOOR_SENSOR_LOG_ID, DOOR_ID, DOOR_STATIS, SENSOR_DISTATNCE, REGISTER_DATETIME, REGISTER_USER
+ *     DOOR_SENSOR_LOG_ID, DOOR_ID, DOOR_STATIS, SENSOR_DISTANCE, REGISTER_DATETIME
  * 
  * [sequence]
  *     
@@ -65,20 +64,18 @@ import org.door.dbflute.exentity.*;
  * Integer doorSensorLogId = entity.getDoorSensorLogId();
  * Integer doorId = entity.getDoorId();
  * Boolean doorStatis = entity.getDoorStatis();
- * Integer sensorDistatnce = entity.getSensorDistatnce();
+ * Integer sensorDistance = entity.getSensorDistance();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
  * entity.setDoorSensorLogId(doorSensorLogId);
  * entity.setDoorId(doorId);
  * entity.setDoorStatis(doorStatis);
- * entity.setSensorDistatnce(sensorDistatnce);
+ * entity.setSensorDistance(sensorDistance);
  * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
+public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -92,20 +89,17 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     /** (ドアセンサーログID)DOOR_SENSOR_LOG_ID: {PK, ID, NotNull, INT(10)} */
     protected Integer _doorSensorLogId;
 
-    /** (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door} */
+    /** (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door} */
     protected Integer _doorId;
 
     /** (ドアステータス)DOOR_STATIS: {NotNull, BIT} */
     protected Boolean _doorStatis;
 
-    /** (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)} */
-    protected Integer _sensorDistatnce;
+    /** (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)} */
+    protected Integer _sensorDistance;
 
-    /** (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)} */
+    /** (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
-
-    /** (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} */
-    protected String _registerUser;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -199,9 +193,8 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
         sb.append(dm).append(xfND(_doorSensorLogId));
         sb.append(dm).append(xfND(_doorId));
         sb.append(dm).append(xfND(_doorStatis));
-        sb.append(dm).append(xfND(_sensorDistatnce));
+        sb.append(dm).append(xfND(_sensorDistance));
         sb.append(dm).append(xfND(_registerDatetime));
-        sb.append(dm).append(xfND(_registerUser));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -249,7 +242,7 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door} <br>
+     * [get] (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door} <br>
      * ひとつひとつのドアに割り当てられたID。
      * @return The value of the column 'DOOR_ID'. (basically NotNull if selected: for the constraint)
      */
@@ -259,7 +252,7 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door} <br>
+     * [set] (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door} <br>
      * ひとつひとつのドアに割り当てられたID。
      * @param doorId The value of the column 'DOOR_ID'. (basically NotNull if update: for the constraint)
      */
@@ -289,28 +282,27 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)} <br>
+     * [get] (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)} <br>
      * ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。
-     * @return The value of the column 'SENSOR_DISTATNCE'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'SENSOR_DISTANCE'. (basically NotNull if selected: for the constraint)
      */
-    public Integer getSensorDistatnce() {
-        checkSpecifiedProperty("sensorDistatnce");
-        return _sensorDistatnce;
+    public Integer getSensorDistance() {
+        checkSpecifiedProperty("sensorDistance");
+        return _sensorDistance;
     }
 
     /**
-     * [set] (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)} <br>
+     * [set] (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)} <br>
      * ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。
-     * @param sensorDistatnce The value of the column 'SENSOR_DISTATNCE'. (basically NotNull if update: for the constraint)
+     * @param sensorDistance The value of the column 'SENSOR_DISTANCE'. (basically NotNull if update: for the constraint)
      */
-    public void setSensorDistatnce(Integer sensorDistatnce) {
-        registerModifiedProperty("sensorDistatnce");
-        _sensorDistatnce = sensorDistatnce;
+    public void setSensorDistance(Integer sensorDistance) {
+        registerModifiedProperty("sensorDistance");
+        _sensorDistance = sensorDistance;
     }
 
     /**
-     * [get] (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)} <br>
-     * レコードが登録された日時
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -319,32 +311,11 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)} <br>
-     * レコードが登録された日時
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
-    }
-
-    /**
-     * [get] (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * レコードを登録したユーザー
-     * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
-     */
-    public String getRegisterUser() {
-        checkSpecifiedProperty("registerUser");
-        return convertEmptyToNull(_registerUser);
-    }
-
-    /**
-     * [set] (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * レコードを登録したユーザー
-     * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
-     */
-    public void setRegisterUser(String registerUser) {
-        registerModifiedProperty("registerUser");
-        _registerUser = registerUser;
     }
 }

@@ -14,11 +14,4 @@
 #
 # *The line that starts with '#' means comment-out.
 #
-map:{
-    ; SearchMemberStatus = list:{
-        ; map:{ topComment=MemberStatus for search condition ; codeType=String }
-        ; map:{ refCls=doordb@MemberStatus ; refType=included }
-        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
-    }
-}
 # ----------------/

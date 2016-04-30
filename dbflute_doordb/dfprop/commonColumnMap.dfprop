@@ -28,15 +28,15 @@
 #
 # *The line that starts with '#' means comment-out.
 #
-map:{
-    ; commonColumnMap = map:{
-        ; REGISTER_DATETIME=TIMESTAMP ; REGISTER_USER=VARCHAR
-    }
-    ; beforeInsertMap = map:{
-        ; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
-        ; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
-    }
-}
+#map:{
+#    ; commonColumnMap = map:{
+#        ; REGISTER_DATETIME=TIMESTAMP ; REGISTER_USER=VARCHAR
+#    }
+#    ; beforeInsertMap = map:{
+#        ; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+#        ; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
+#    }
+#}
 # ----------------/
 #
 # *Refer to typeMappingMap.dfprop for JDBC type reference.

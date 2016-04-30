@@ -321,7 +321,7 @@ public class BsDoorSensorLogCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnDoorSensorLogId() { return doColumn("DOOR_SENSOR_LOG_ID"); }
         /**
-         * (ドアID)DOOR_ID: {IX+, NotNull, INT(10), FK to door}
+         * (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDoorId() { return doColumn("DOOR_ID"); }
@@ -331,20 +331,15 @@ public class BsDoorSensorLogCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnDoorStatis() { return doColumn("DOOR_STATIS"); }
         /**
-         * (センサー距離)SENSOR_DISTATNCE: {NotNull, INT(10)}
+         * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnSensorDistatnce() { return doColumn("SENSOR_DISTATNCE"); }
+        public SpecifiedColumn columnSensorDistance() { return doColumn("SENSOR_DISTANCE"); }
         /**
-         * (登録日時)REGISTER_DATETIME: {IX+, NotNull, DATETIME(19)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
-        /**
-         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override

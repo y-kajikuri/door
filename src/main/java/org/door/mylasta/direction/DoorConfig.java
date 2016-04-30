@@ -39,7 +39,7 @@ public interface DoorConfig extends DoorEnv {
     String COOKIE_ETERNAL_EXPIRE = "cookie.eternal.expire";
 
     /** The key of the configuration. e.g. HRB */
-    String COOKIE_REMEMBER_ME_HARBOR_KEY = "cookie.remember.me.door.key";
+    String COOKIE_REMEMBER_ME_DOOR_KEY = "cookie.remember.me.door.key";
 
     /** The key of the configuration. e.g. 4 */
     String PAGING_PAGE_SIZE = "paging.page.size";
@@ -220,7 +220,7 @@ public interface DoorConfig extends DoorEnv {
         }
 
         public String getCookieRememberMeDoorKey() {
-            return get(DoorConfig.COOKIE_REMEMBER_ME_HARBOR_KEY);
+            return get(DoorConfig.COOKIE_REMEMBER_ME_DOOR_KEY);
         }
 
         public String getPagingPageSize() {

@@ -11,7 +11,7 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
-	<x>239</x>
+	<x>108</x>
 	<y>0</y>
 	<default_color>
 		<r>255</r>
@@ -115,7 +115,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2013-07-01 19:43:02</creation_date>
-			<updated_date>2016-04-29 22:28:45</updated_date>
+			<updated_date>2016-04-30 18:12:40</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -238,13 +238,26 @@
 			<array_dimension>null</array_dimension>
 			<unsigned>false</unsigned>
 			<args></args>
-			<description>レコードが登録された日時</description>
+			<description></description>
 			<logical_name>登録日時</logical_name>
 			<physical_name>REGISTER_DATETIME</physical_name>
 			<type>datetime</type>
 		</word>
 		<word>
 			<id>7</id>
+			<length>null</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<args></args>
+			<description>レコードが登録された日時</description>
+			<logical_name>登録日時</logical_name>
+			<physical_name>REGISTER_DATETIME</physical_name>
+			<type>datetime</type>
+		</word>
+		<word>
+			<id>8</id>
 			<length>200</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -257,7 +270,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>8</id>
+			<id>9</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -270,7 +283,7 @@
 			<type>integer</type>
 		</word>
 		<word>
-			<id>9</id>
+			<id>10</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -586,7 +599,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>8</word_id>
+					<word_id>9</word_id>
 					<id>10</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -617,7 +630,38 @@
 						<decimal_size>0</decimal_size>
 					</sequence>
 				</normal_column>
-				<column_group>0</column_group>
+				<normal_column>
+					<word_id>6</word_id>
+					<id>11</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>datetime</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
 			</columns>
 			<indexes>
 				<inidex>
@@ -627,10 +671,6 @@
 					<type></type>
 					<description></description>
 					<columns>
-						<column>
-							<id>0</id>
-							<desc>true</desc>
-						</column>
 						<column>
 							<id>8</id>
 							<desc>false</desc>
@@ -657,7 +697,7 @@
 				<group_name>共通カラム</group_name>
 				<columns>
 					<normal_column>
-						<word_id>6</word_id>
+						<word_id>7</word_id>
 						<id>0</id>
 						<description></description>
 						<unique_key_name></unique_key_name>
@@ -689,7 +729,7 @@
 						</sequence>
 					</normal_column>
 					<normal_column>
-						<word_id>7</word_id>
+						<word_id>8</word_id>
 						<id>1</id>
 						<description></description>
 						<unique_key_name></unique_key_name>
@@ -727,7 +767,7 @@
 				<group_name>排他制御カラム</group_name>
 				<columns>
 					<normal_column>
-						<word_id>9</word_id>
+						<word_id>10</word_id>
 						<id>2</id>
 						<description></description>
 						<unique_key_name></unique_key_name>

@@ -29,24 +29,17 @@
             required="true" type="BIT"/>
         <column
             comment="センサー距離 : ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。"
-            dbType="INT" javaType="Integer" name="SENSOR_DISTATNCE"
+            dbType="INT" javaType="Integer" name="SENSOR_DISTANCE"
             required="true" size="10" type="INTEGER"/>
-        <column comment="登録日時 : レコードが登録された日時" dbType="DATETIME"
+        <column comment="登録日時" dbType="DATETIME"
             javaType="java.time.LocalDateTime" name="REGISTER_DATETIME"
             required="true" size="19" type="TIMESTAMP"/>
-        <column comment="登録ユーザー : レコードを登録したユーザー" dbType="VARCHAR"
-            javaType="String" name="REGISTER_USER" required="true"
-            size="200" type="VARCHAR"/>
         <foreign-key foreignSchema="doordb.$$NoNameSchema$$"
             foreignTable="door" name="door_sensor_log_ibfk_1">
             <reference foreign="DOOR_ID" local="DOOR_ID"/>
         </foreign-key>
-        <index name="DOOR_ID">
-            <index-column name="DOOR_ID" position="1"/>
-        </index>
         <index name="INDEX_DOOR_ID_REGISTER_DATETIME">
-            <index-column name="REGISTER_DATETIME" position="1"/>
-            <index-column name="DOOR_ID" position="2"/>
+            <index-column name="DOOR_ID" position="1"/>
         </index>
     </table>
     <procedureGroup/>
