@@ -60,7 +60,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorId The value of doorId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_Equal(Integer doorId) {
@@ -73,7 +73,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorId The value of doorId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_NotEqual(Integer doorId) {
@@ -86,7 +86,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorId The value of doorId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_GreaterThan(Integer doorId) {
@@ -95,7 +95,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorId The value of doorId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_LessThan(Integer doorId) {
@@ -104,7 +104,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorId The value of doorId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_GreaterEqual(Integer doorId) {
@@ -113,7 +113,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorId The value of doorId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDoorId_LessEqual(Integer doorId) {
@@ -124,7 +124,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param minNumber The min number of doorId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of doorId. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -137,7 +137,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param minNumber The min number of doorId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of doorId. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -148,7 +148,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorIdList The collection of doorId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDoorId_InScope(Collection<Integer> doorIdList) {
@@ -161,7 +161,7 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @param doorIdList The collection of doorId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setDoorId_NotInScope(Collection<Integer> doorIdList) {
@@ -247,13 +247,13 @@ public abstract class AbstractBsDoorCQ extends AbstractConditionQuery {
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      */
     public void setDoorId_IsNull() { regDoorId(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      */
     public void setDoorId_IsNotNull() { regDoorId(CK_ISNN, DOBJ); }
 

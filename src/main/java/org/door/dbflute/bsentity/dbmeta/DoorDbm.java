@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -65,6 +66,18 @@ public class DoorDbm extends AbstractDBMeta {
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
 
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+    protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
+    { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((Door)et).getDoorSensorLogAsLatest(), (et, vl) -> ((Door)et).setDoorSensorLogAsLatest((OptionalEntity<DoorSensorLog>)vl), "doorSensorLogAsLatest");
+    }
+    public PropertyGateway findForeignPropertyGateway(String prop)
+    { return doFindEfpg(_efpgMap, prop); }
+
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
@@ -83,13 +96,13 @@ public class DoorDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnDoorId = cci("DOOR_ID", "DOOR_ID", null, "ドアID", Integer.class, "doorId", null, true, true, true, "INT", 10, 0, null, false, null, null, null, "doorSensorLogList", null, false);
+    protected final ColumnInfo _columnDoorId = cci("DOOR_ID", "DOOR_ID", null, "ドアID", Integer.class, "doorId", null, true, true, true, "INT", 10, 0, null, false, null, null, "doorSensorLogAsLatest", "doorSensorLogList", null, false);
     protected final ColumnInfo _columnDoorName = cci("DOOR_NAME", "DOOR_NAME", null, "ドア名", String.class, "doorName", null, false, false, false, "VARCHAR", 10, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnMin = cci("MIN", "MIN", null, "最小値", Integer.class, "min", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnMax = cci("MAX", "MAX", null, "最大値", Integer.class, "max", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
 
     /**
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDoorId() { return _columnDoorId; }
@@ -138,6 +151,15 @@ public class DoorDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
+    /**
+     * (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+     * 最新のドアのセンサーログ
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignDoorSensorLogAsLatest() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnDoorId(), DoorSensorLogDbm.getInstance().columnDoorId());
+        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "doorSensorLogAsLatest", this, DoorSensorLogDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.REGESTER_DATETIME = ($$sqbegin$$\n        select max(log.REGESTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$", null, false, null, false);
+    }
 
     // -----------------------------------------------------
     //                                     Referrer Property

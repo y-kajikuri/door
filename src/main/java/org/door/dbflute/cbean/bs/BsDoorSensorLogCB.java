@@ -33,6 +33,7 @@ import org.door.dbflute.allcommon.ImplementedInvokerAssistant;
 import org.door.dbflute.allcommon.ImplementedSqlClauseCreator;
 import org.door.dbflute.cbean.*;
 import org.door.dbflute.cbean.cq.*;
+import org.door.dbflute.cbean.nss.*;
 
 /**
  * The base condition-bean of door_sensor_log.
@@ -249,6 +250,11 @@ public class BsDoorSensorLogCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
+    protected DoorNss _nssDoor;
+    public DoorNss xdfgetNssDoor() {
+        if (_nssDoor == null) { _nssDoor = new DoorNss(null); }
+        return _nssDoor;
+    }
     /**
      * Set up relation columns to select clause. <br>
      * (ドア)DOOR by my DOOR_ID, named 'door'.
@@ -260,13 +266,17 @@ public class BsDoorSensorLogCB extends AbstractConditionBean {
      *     ... = <span style="color: #553000">doorSensorLog</span>.<span style="color: #CC4747">getDoor()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public void setupSelect_Door() {
+    public DoorNss setupSelect_Door() {
         assertSetupSelectPurpose("door");
         if (hasSpecifiedLocalColumn()) {
             specify().columnDoorId();
         }
         doSetupSelect(() -> query().queryDoor());
+        if (_nssDoor == null || !_nssDoor.hasConditionQuery())
+        { _nssDoor = new DoorNss(query().queryDoor()); }
+        return _nssDoor;
     }
 
     // [DBFlute-0.7.4]

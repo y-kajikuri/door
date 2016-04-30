@@ -15,19 +15,19 @@
  */
 package org.door.dbflute.cbean.nss;
 
-import org.door.dbflute.cbean.cq.DoorSensorLogCQ;
+import org.door.dbflute.cbean.cq.DoorCQ;
 
 /**
- * The nest select set-upper of door_sensor_log.
+ * The nest select set-upper of door.
  * @author DBFlute(AutoGenerator)
  */
-public class DoorSensorLogNss {
+public class DoorNss {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected final DoorSensorLogCQ _query;
-    public DoorSensorLogNss(DoorSensorLogCQ query) { _query = query; }
+    protected final DoorCQ _query;
+    public DoorNss(DoorCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 
     // ===================================================================================
@@ -35,11 +35,12 @@ public class DoorSensorLogNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (ドア)DOOR by my DOOR_ID, named 'door'.
+     * (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+     * 最新のドアのセンサーログ
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public DoorNss withDoor() {
-        _query.xdoNss(() -> _query.queryDoor());
-        return new DoorNss(_query.queryDoor());
+    public DoorSensorLogNss withDoorSensorLogAsLatest() {
+        _query.xdoNss(() -> _query.queryDoorSensorLogAsLatest());
+        return new DoorSensorLogNss(_query.queryDoorSensorLogAsLatest());
     }
 }

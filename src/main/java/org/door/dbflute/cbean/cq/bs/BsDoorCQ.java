@@ -110,14 +110,14 @@ public class BsDoorCQ extends AbstractBsDoorCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @return this. (NotNull)
      */
     public BsDoorCQ addOrderBy_DoorId_Asc() { regOBA("DOOR_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+     * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
      * @return this. (NotNull)
      */
     public BsDoorCQ addOrderBy_DoorId_Desc() { regOBD("DOOR_ID"); return this; }
@@ -221,11 +221,37 @@ public class BsDoorCQ extends AbstractBsDoorCQ {
     //                                                                         Union Query
     //                                                                         ===========
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
+        DoorCQ bq = (DoorCQ)bqs;
+        DoorCQ uq = (DoorCQ)uqs;
+        if (bq.hasConditionQueryDoorSensorLogAsLatest()) {
+            uq.queryDoorSensorLogAsLatest().reflectRelationOnUnionQuery(bq.queryDoorSensorLogAsLatest(), uq.queryDoorSensorLogAsLatest());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    /**
+     * Get the condition-query for relation table. <br>
+     * (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+     * 最新のドアのセンサーログ
+     * @return The instance of condition-query. (NotNull)
+     */
+    public DoorSensorLogCQ queryDoorSensorLogAsLatest() {
+        return xdfgetConditionQueryDoorSensorLogAsLatest();
+    }
+    public DoorSensorLogCQ xdfgetConditionQueryDoorSensorLogAsLatest() {
+        String prop = "doorSensorLogAsLatest";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryDoorSensorLogAsLatest()); xsetupOuterJoinDoorSensorLogAsLatest(); }
+        return xgetQueRlMap(prop);
+    }
+    protected DoorSensorLogCQ xcreateQueryDoorSensorLogAsLatest() {
+        String nrp = xresolveNRP("door", "doorSensorLogAsLatest"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new DoorSensorLogCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "doorSensorLogAsLatest", nrp);
+    }
+    protected void xsetupOuterJoinDoorSensorLogAsLatest() { xregOutJo("doorSensorLogAsLatest"); }
+    public boolean hasConditionQueryDoorSensorLogAsLatest() { return xhasQueRlMap("doorSensorLogAsLatest"); }
+
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;
     }

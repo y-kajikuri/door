@@ -53,13 +53,13 @@ import org.door.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     
+ *     DOOR_SENSOR_LOG(AsLatest)
  *
  * [referrer table]
  *     DOOR_SENSOR_LOG
  *
  * [foreign property]
- *     
+ *     doorSensorLogAsLatest
  *
  * [referrer property]
  *     doorSensorLogList
@@ -172,7 +172,7 @@ public abstract class BsDoorBhv extends AbstractBehaviorWritable<Door, DoorCB> {
 
     /**
      * Select the entity by the primary-key value.
-     * @param doorId (ドアID): PK, ID, NotNull, INT(10). (NotNull)
+     * @param doorId (ドアID): PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -441,6 +441,14 @@ public abstract class BsDoorBhv extends AbstractBehaviorWritable<Door, DoorCB> {
     // ===================================================================================
     //                                                                   Pull out Relation
     //                                                                   =================
+    /**
+     * Pull out the list of foreign table 'DoorSensorLog'.
+     * @param doorList The list of door. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<DoorSensorLog> pulloutDoorSensorLogAsLatest(List<Door> doorList)
+    { return helpPulloutInternally(doorList, "doorSensorLogAsLatest"); }
+
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============

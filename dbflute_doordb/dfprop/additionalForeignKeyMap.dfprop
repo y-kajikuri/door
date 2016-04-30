@@ -34,5 +34,17 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    ; FK_MEMBER_MEMBER_LOGIN_LATEST = map:{
+        ; localTableName  = DOOR    ; foreignTableName  = DOOR_SENSOR_LOG
+        ; localColumnName = DOOR_ID ; foreignColumnName = DOOR_ID
+        ; fixedCondition  = 
+        $$foreignAlias$$.REGESTER_DATETIME = ($$sqbegin$$
+        select max(log.REGESTER_DATETIME)
+          from DOOR_SENSOR_LOG log
+         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID
+        )$$sqend$$
+        ; fixedSuffix = AsLatest
+        ; comment = 最新のドアのセンサーログ
+        }
 }
 # ----------------/

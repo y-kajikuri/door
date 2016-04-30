@@ -42,13 +42,13 @@ import org.door.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     
+ *     DOOR_SENSOR_LOG(AsLatest)
  *
  * [referrer table]
  *     DOOR_SENSOR_LOG
  *
  * [foreign property]
- *     
+ *     doorSensorLogAsLatest
  *
  * [referrer property]
  *     doorSensorLogList
@@ -113,6 +113,13 @@ public class LoaderOfDoor {
     // ===================================================================================
     //                                                                    Pull out Foreign
     //                                                                    ================
+    protected LoaderOfDoorSensorLog _foreignDoorSensorLogAsLatestLoader;
+    public LoaderOfDoorSensorLog pulloutDoorSensorLogAsLatest() {
+        if (_foreignDoorSensorLogAsLatestLoader == null)
+        { _foreignDoorSensorLogAsLatestLoader = new LoaderOfDoorSensorLog().ready(myBhv().pulloutDoorSensorLogAsLatest(_selectedList), _selector); }
+        return _foreignDoorSensorLogAsLatestLoader;
+    }
+
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========

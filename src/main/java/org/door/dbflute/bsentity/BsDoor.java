@@ -18,9 +18,11 @@ package org.door.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.door.dbflute.allcommon.DBMetaInstanceHandler;
 import org.door.dbflute.exentity.*;
 
@@ -43,13 +45,13 @@ import org.door.dbflute.exentity.*;
  *     
  * 
  * [foreign table]
- *     
+ *     DOOR_SENSOR_LOG(AsLatest)
  * 
  * [referrer table]
  *     DOOR_SENSOR_LOG
  * 
  * [foreign property]
- *     
+ *     doorSensorLogAsLatest
  * 
  * [referrer property]
  *     doorSensorLogList
@@ -79,7 +81,7 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)} */
+    /** (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG} */
     protected Integer _doorId;
 
     /** (ドア名)DOOR_NAME: {VARCHAR(10)} */
@@ -116,6 +118,29 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
+    /** (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. */
+    protected OptionalEntity<DoorSensorLog> _doorSensorLogAsLatest;
+
+    /**
+     * [get] (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+     * 最新のドアのセンサーログ <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'doorSensorLogAsLatest'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<DoorSensorLog> getDoorSensorLogAsLatest() {
+        if (_doorSensorLogAsLatest == null) { _doorSensorLogAsLatest = OptionalEntity.relationEmpty(this, "doorSensorLogAsLatest"); }
+        return _doorSensorLogAsLatest;
+    }
+
+    /**
+     * [set] (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+     * 最新のドアのセンサーログ
+     * @param doorSensorLogAsLatest The entity of foreign property 'doorSensorLogAsLatest'. (NullAllowed)
+     */
+    public void setDoorSensorLogAsLatest(OptionalEntity<DoorSensorLog> doorSensorLogAsLatest) {
+        _doorSensorLogAsLatest = doorSensorLogAsLatest;
+    }
+
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
@@ -168,9 +193,14 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
+        if (_doorSensorLogAsLatest != null && _doorSensorLogAsLatest.isPresent())
+        { sb.append(li).append(xbRDS(_doorSensorLogAsLatest, "doorSensorLogAsLatest")); }
         if (_doorSensorLogList != null) { for (DoorSensorLog et : _doorSensorLogList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "doorSensorLogList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -190,6 +220,8 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
+        if (_doorSensorLogAsLatest != null && _doorSensorLogAsLatest.isPresent())
+        { sb.append(dm).append("doorSensorLogAsLatest"); }
         if (_doorSensorLogList != null && !_doorSensorLogList.isEmpty())
         { sb.append(dm).append("doorSensorLogList"); }
         if (sb.length() > dm.length()) {
@@ -207,7 +239,7 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)} <br>
+     * [get] (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG} <br>
      * ひとつひとつのドアに割り当てられたID。
      * @return The value of the column 'DOOR_ID'. (basically NotNull if selected: for the constraint)
      */
@@ -217,7 +249,7 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)} <br>
+     * [set] (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG} <br>
      * ひとつひとつのドアに割り当てられたID。
      * @param doorId The value of the column 'DOOR_ID'. (basically NotNull if update: for the constraint)
      */

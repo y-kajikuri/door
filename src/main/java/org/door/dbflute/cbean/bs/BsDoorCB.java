@@ -33,6 +33,7 @@ import org.door.dbflute.allcommon.ImplementedInvokerAssistant;
 import org.door.dbflute.allcommon.ImplementedSqlClauseCreator;
 import org.door.dbflute.cbean.*;
 import org.door.dbflute.cbean.cq.*;
+import org.door.dbflute.cbean.nss.*;
 
 /**
  * The base condition-bean of door.
@@ -92,7 +93,7 @@ public class BsDoorCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param doorId (ドアID): PK, ID, NotNull, INT(10). (NotNull)
+     * @param doorId (ドアID): PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG. (NotNull)
      * @return this. (NotNull)
      */
     public DoorCB acceptPK(Integer doorId) {
@@ -249,6 +250,33 @@ public class BsDoorCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
+    protected DoorSensorLogNss _nssDoorSensorLogAsLatest;
+    public DoorSensorLogNss xdfgetNssDoorSensorLogAsLatest() {
+        if (_nssDoorSensorLogAsLatest == null) { _nssDoorSensorLogAsLatest = new DoorSensorLogNss(null); }
+        return _nssDoorSensorLogAsLatest;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+     * 最新のドアのセンサーログ
+     * <pre>
+     * <span style="color: #0000C0">doorBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_DoorSensorLogAsLatest()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">door</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">door</span>.<span style="color: #CC4747">getDoorSensorLogAsLatest()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public DoorSensorLogNss setupSelect_DoorSensorLogAsLatest() {
+        assertSetupSelectPurpose("doorSensorLogAsLatest");
+        doSetupSelect(() -> query().queryDoorSensorLogAsLatest());
+        if (_nssDoorSensorLogAsLatest == null || !_nssDoorSensorLogAsLatest.hasConditionQuery())
+        { _nssDoorSensorLogAsLatest = new DoorSensorLogNss(query().queryDoorSensorLogAsLatest()); }
+        return _nssDoorSensorLogAsLatest;
+    }
+
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -290,12 +318,13 @@ public class BsDoorCB extends AbstractConditionBean {
     }
 
     public static class HpSpecification extends HpAbstractSpecification<DoorCQ> {
+        protected DoorSensorLogCB.HpSpecification _doorSensorLogAsLatest;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<DoorCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10)}
+         * (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDoorId() { return doColumn("DOOR_ID"); }
@@ -322,6 +351,27 @@ public class BsDoorCB extends AbstractConditionBean {
         }
         @Override
         protected String getTableDbName() { return "door"; }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (ドアセンサーログ)DOOR_SENSOR_LOG by my DOOR_ID, named 'doorSensorLogAsLatest'. <br>
+         * 最新のドアのセンサーログ
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public DoorSensorLogCB.HpSpecification specifyDoorSensorLogAsLatest() {
+            assertRelation("doorSensorLogAsLatest");
+            if (_doorSensorLogAsLatest == null) {
+                _doorSensorLogAsLatest = new DoorSensorLogCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryDoorSensorLogAsLatest()
+                                    , () -> _qyCall.qy().queryDoorSensorLogAsLatest())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _doorSensorLogAsLatest.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryDoorSensorLogAsLatest()
+                      , () -> xsyncQyCall().qy().queryDoorSensorLogAsLatest()));
+                }
+            }
+            return _doorSensorLogAsLatest;
+        }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from door_sensor_log where ...) as FOO_MAX} <br>
