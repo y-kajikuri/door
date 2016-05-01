@@ -37,7 +37,7 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
     public HtmlResponse index(InsertForm form) {
         insertSensorLog(form);
         InsertRowBean bean = setBean();
-        return asHtml(path_Insert_InsertHtml).renderWith(data -> {
+        return asHtml(path_Insert_InsertJsp).renderWith(data -> {
             data.register("bean", bean);
         });
     }
@@ -66,7 +66,7 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
 
     private InsertRowBean setBean() {
         InsertRowBean bean = new InsertRowBean();
-        bean.messege = "OK";
+        bean.messege = "できたよ";
         return bean;
     }
 }

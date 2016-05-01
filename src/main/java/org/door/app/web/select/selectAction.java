@@ -28,7 +28,7 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
     public HtmlResponse index(SelectForm form) {
         ListResultBean<Door> doorList = selectDoorStatusList(form);
         List<SelectRowBean> beans = mappingToRowList(doorList);
-        return asHtml(path_Select_SelectHtml).renderWith(data -> {
+        return asHtml(path_Select_SelectJsp).renderWith(data -> {
             data.register("bean", beans);
         });
     }
