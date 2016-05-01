@@ -8,8 +8,7 @@
              <table class="purchase-list-tbl">
             <thead>
                 <tr>
-                    <th>MESSAGE</th>
-                   
+                    <th>MESSAGE</th>      
             </thead>
             <tbody>
                <c:forEach var="bean" items="${bean}">
