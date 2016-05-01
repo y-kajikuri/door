@@ -1,4 +1,23 @@
 map:{
+    ; 2016/04/30 20:11:30 = map:{
+        ; diffDate = 2016/04/30 20:11:30
+        ; tableDiff = map:{
+            ; door_sensor_log = map:{
+                ; tableName = door_sensor_log
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; DOOR_STATUS = map:{
+                        ; columnName = DOOR_STATUS
+                        ; diffType = ADD
+                    }
+                    ; DOOR_STATIS = map:{
+                        ; columnName = DOOR_STATIS
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
     ; 2016/04/30 18:08:31 = map:{
         ; diffDate = 2016/04/30 18:08:31
         ; tableDiff = map:{

@@ -158,7 +158,7 @@ public class DoorDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignDoorSensorLogAsLatest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnDoorId(), DoorSensorLogDbm.getInstance().columnDoorId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "doorSensorLogAsLatest", this, DoorSensorLogDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.REGESTER_DATETIME = ($$sqbegin$$\n        select max(log.REGESTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$", null, false, null, false);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "doorSensorLogAsLatest", this, DoorSensorLogDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.REGISTER_DATETIME = ($$sqbegin$$\n        select max(log.REGISTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$", null, false, null, false);
     }
 
     // -----------------------------------------------------

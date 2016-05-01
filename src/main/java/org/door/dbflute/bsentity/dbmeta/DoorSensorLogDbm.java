@@ -60,7 +60,7 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorSensorLogId(), (et, vl) -> ((DoorSensorLog)et).setDoorSensorLogId(cti(vl)), "doorSensorLogId");
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorId(), (et, vl) -> ((DoorSensorLog)et).setDoorId(cti(vl)), "doorId");
-        setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorStatis(), (et, vl) -> ((DoorSensorLog)et).setDoorStatis((Boolean)vl), "doorStatis");
+        setupEpg(_epgMap, et -> ((DoorSensorLog)et).getDoorStatus(), (et, vl) -> ((DoorSensorLog)et).setDoorStatus((Boolean)vl), "doorStatus");
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getSensorDistance(), (et, vl) -> ((DoorSensorLog)et).setSensorDistance(cti(vl)), "sensorDistance");
         setupEpg(_epgMap, et -> ((DoorSensorLog)et).getRegisterDatetime(), (et, vl) -> ((DoorSensorLog)et).setRegisterDatetime(ctldt(vl)), "registerDatetime");
     }
@@ -99,7 +99,7 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnDoorSensorLogId = cci("DOOR_SENSOR_LOG_ID", "DOOR_SENSOR_LOG_ID", null, "ドアセンサーログID", Integer.class, "doorSensorLogId", null, true, true, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDoorId = cci("DOOR_ID", "DOOR_ID", null, "ドアID", Integer.class, "doorId", null, false, false, true, "INT", 10, 0, null, false, null, null, "door", null, null, false);
-    protected final ColumnInfo _columnDoorStatis = cci("DOOR_STATIS", "DOOR_STATIS", null, "ドアステータス", Boolean.class, "doorStatis", null, false, false, true, "BIT", null, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDoorStatus = cci("DOOR_STATUS", "DOOR_STATUS", null, "ドアステータス", Boolean.class, "doorStatus", null, false, false, true, "BIT", null, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnSensorDistance = cci("SENSOR_DISTANCE", "SENSOR_DISTANCE", null, "センサー距離", Integer.class, "sensorDistance", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
 
@@ -114,10 +114,10 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnDoorId() { return _columnDoorId; }
     /**
-     * (ドアステータス)DOOR_STATIS: {NotNull, BIT}
+     * (ドアステータス)DOOR_STATUS: {NotNull, BIT}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnDoorStatis() { return _columnDoorStatis; }
+    public ColumnInfo columnDoorStatus() { return _columnDoorStatus; }
     /**
      * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
@@ -133,7 +133,7 @@ public class DoorSensorLogDbm extends AbstractDBMeta {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnDoorSensorLogId());
         ls.add(columnDoorId());
-        ls.add(columnDoorStatis());
+        ls.add(columnDoorStatus());
         ls.add(columnSensorDistance());
         ls.add(columnRegisterDatetime());
         return ls;

@@ -336,10 +336,10 @@ public class BsDoorSensorLogCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnDoorId() { return doColumn("DOOR_ID"); }
         /**
-         * (ドアステータス)DOOR_STATIS: {NotNull, BIT}
+         * (ドアステータス)DOOR_STATUS: {NotNull, BIT}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnDoorStatis() { return doColumn("DOOR_STATIS"); }
+        public SpecifiedColumn columnDoorStatus() { return doColumn("DOOR_STATUS"); }
         /**
          * (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)

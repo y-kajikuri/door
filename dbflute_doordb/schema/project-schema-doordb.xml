@@ -25,7 +25,7 @@
         <column comment="ドアID : ひとつひとつのドアに割り当てられたID。" dbType="INT"
             javaType="Integer" name="DOOR_ID" required="true" size="10" type="INTEGER"/>
         <column comment="ドアステータス : ドアが閉まっている時がfalse、空いている時がtrue"
-            dbType="BIT" javaType="Boolean" name="DOOR_STATIS"
+            dbType="BIT" javaType="Boolean" name="DOOR_STATUS"
             required="true" type="BIT"/>
         <column
             comment="センサー距離 : ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。"

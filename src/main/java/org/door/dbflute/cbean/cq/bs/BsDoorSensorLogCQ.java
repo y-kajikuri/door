@@ -128,25 +128,25 @@ public class BsDoorSensorLogCQ extends AbstractBsDoorSensorLogCQ {
      */
     public BsDoorSensorLogCQ addOrderBy_DoorId_Desc() { regOBD("DOOR_ID"); return this; }
 
-    protected ConditionValue _doorStatis;
-    public ConditionValue xdfgetDoorStatis()
-    { if (_doorStatis == null) { _doorStatis = nCV(); }
-      return _doorStatis; }
-    protected ConditionValue xgetCValueDoorStatis() { return xdfgetDoorStatis(); }
+    protected ConditionValue _doorStatus;
+    public ConditionValue xdfgetDoorStatus()
+    { if (_doorStatus == null) { _doorStatus = nCV(); }
+      return _doorStatus; }
+    protected ConditionValue xgetCValueDoorStatus() { return xdfgetDoorStatus(); }
 
     /** 
      * Add order-by as ascend. <br>
-     * (ドアステータス)DOOR_STATIS: {NotNull, BIT}
+     * (ドアステータス)DOOR_STATUS: {NotNull, BIT}
      * @return this. (NotNull)
      */
-    public BsDoorSensorLogCQ addOrderBy_DoorStatis_Asc() { regOBA("DOOR_STATIS"); return this; }
+    public BsDoorSensorLogCQ addOrderBy_DoorStatus_Asc() { regOBA("DOOR_STATUS"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (ドアステータス)DOOR_STATIS: {NotNull, BIT}
+     * (ドアステータス)DOOR_STATUS: {NotNull, BIT}
      * @return this. (NotNull)
      */
-    public BsDoorSensorLogCQ addOrderBy_DoorStatis_Desc() { regOBD("DOOR_STATIS"); return this; }
+    public BsDoorSensorLogCQ addOrderBy_DoorStatus_Desc() { regOBD("DOOR_STATUS"); return this; }
 
     protected ConditionValue _sensorDistance;
     public ConditionValue xdfgetSensorDistance()

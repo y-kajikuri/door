@@ -49,7 +49,7 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
 
         DoorSensorLog log = new DoorSensorLog();
         log.setDoorId(doorId);
-        log.setDoorStatis(isDoorOpen(doorId, distance));
+        log.setDoorStatus(isDoorOpen(doorId, distance));
         log.setSensorDistance(distance);
         log.setRegisterDatetime(timeManager.currentDateTime());
         doorSensorLogBhv.insert(log);

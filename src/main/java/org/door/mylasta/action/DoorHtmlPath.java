@@ -32,6 +32,9 @@ public interface DoorHtmlPath {
     /** The path of the HTML: /mypage/mypage.html */
     HtmlNext path_Mypage_MypageHtml = new HtmlNext("/mypage/mypage.html");
 
+    /** The path of the HTML: /select/select.html */
+    HtmlNext path_Select_SelectHtml = new HtmlNext("/select/select.jsp");
+
     /** The path of the HTML: /signin/signin.html */
     HtmlNext path_Signin_SigninHtml = new HtmlNext("/signin/signin.html");
 }

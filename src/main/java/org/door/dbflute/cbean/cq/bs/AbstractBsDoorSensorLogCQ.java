@@ -306,15 +306,15 @@ public abstract class AbstractBsDoorSensorLogCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (ドアステータス)DOOR_STATIS: {NotNull, BIT}
-     * @param doorStatis The value of doorStatis as equal. (basically NotNull: error as default, or no condition as option)
+     * (ドアステータス)DOOR_STATUS: {NotNull, BIT}
+     * @param doorStatus The value of doorStatus as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDoorStatis_Equal(Boolean doorStatis) {
-        regDoorStatis(CK_EQ, doorStatis);
+    public void setDoorStatus_Equal(Boolean doorStatus) {
+        regDoorStatus(CK_EQ, doorStatus);
     }
 
-    protected void regDoorStatis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDoorStatis(), "DOOR_STATIS"); }
-    protected abstract ConditionValue xgetCValueDoorStatis();
+    protected void regDoorStatus(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDoorStatus(), "DOOR_STATUS"); }
+    protected abstract ConditionValue xgetCValueDoorStatus();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>

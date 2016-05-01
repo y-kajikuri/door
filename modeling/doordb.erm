@@ -11,7 +11,7 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
-	<x>108</x>
+	<x>0</x>
 	<y>0</y>
 	<default_color>
 		<r>255</r>
@@ -115,7 +115,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2013-07-01 19:43:02</creation_date>
-			<updated_date>2016-04-30 18:12:40</updated_date>
+			<updated_date>2016-04-30 19:37:55</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -201,7 +201,7 @@
 			<args></args>
 			<description>ドアが閉まっている時がfalse、空いている時がtrue</description>
 			<logical_name>ドアステータス</logical_name>
-			<physical_name>DOOR_STATIS</physical_name>
+			<physical_name>DOOR_STATUS</physical_name>
 			<type>boolean</type>
 		</word>
 		<word>

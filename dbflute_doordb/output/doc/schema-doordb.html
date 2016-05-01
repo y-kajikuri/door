@@ -309,7 +309,7 @@ dl.procedurelist dd.column pre {
 		<td class="aliascell">ドア</td>
 		<td><a href="#door" title="type=TABLE, primaryKey={DOOR_ID}, nameLength=4, columnCount=4">DOOR</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#door_sensor_log" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LATEST: fixedCondition=&quot;$$foreignAlias$$.REGESTER_DATETIME = ($$sqbegin$$\n        select max(log.REGESTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$&quot;, comment=最新のドアのセンサーログ">DOOR_SENSOR_LOG(AsLatest)</a></td>
+		<td class="relcell"><a href="#door_sensor_log" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LATEST: fixedCondition=&quot;$$foreignAlias$$.REGISTER_DATETIME = ($$sqbegin$$\n        select max(log.REGISTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$&quot;, comment=最新のドアのセンサーログ">DOOR_SENSOR_LOG(AsLatest)</a></td>
 		<td class="relcell"><a href="#door_sensor_log" title="door_sensor_log_ibfk_1">DOOR_SENSOR_LOG</a></td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">Door</td>
@@ -362,7 +362,7 @@ dl.procedurelist dd.column pre {
 		<td id="door_door_id">DOOR_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
-		<td class="relcell"><a href="#door_sensor_log" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LATEST: fixedCondition=&quot;$$foreignAlias$$.REGESTER_DATETIME = ($$sqbegin$$\n        select max(log.REGESTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$&quot;, comment=最新のドアのセンサーログ">DOOR_SENSOR_LOG(AsLatest)</a>&nbsp;</td>
+		<td class="relcell"><a href="#door_sensor_log" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LATEST: fixedCondition=&quot;$$foreignAlias$$.REGISTER_DATETIME = ($$sqbegin$$\n        select max(log.REGISTER_DATETIME)\n          from DOOR_SENSOR_LOG log\n         where log.DOOR_ID = $$foreignAlias$$.DOOR_ID\n        )$$sqend$$&quot;, comment=最新のドアのセンサーログ">DOOR_SENSOR_LOG(AsLatest)</a>&nbsp;</td>
 		<td class="relcell"><a href="#door_sensor_log" title="door_sensor_log_ibfk_1">DOOR_SENSOR_LOG</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> ひとつひとつのドアに割り当てられたID。</td>
@@ -493,14 +493,14 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">ドアステータス</td>
-		<td id="door_sensor_log_door_statis">DOOR_STATIS</td>
+		<td id="door_sensor_log_door_status">DOOR_STATUS</td>
 		<td class="typecell">BIT</td>
 		<td class="sizecell"> &nbsp;</td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"> ドアが閉まっている時がfalse、空いている時がtrue</td>
-		<td class="subcell">doorStatis</td>
+		<td class="subcell">doorStatus</td>
 		<td class="subcell">Boolean</td>
 	</tr>
 	<tr>

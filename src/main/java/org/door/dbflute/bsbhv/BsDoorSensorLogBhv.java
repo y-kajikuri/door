@@ -41,7 +41,7 @@ import org.door.dbflute.cbean.*;
  *     DOOR_SENSOR_LOG_ID
  *
  * [column]
- *     DOOR_SENSOR_LOG_ID, DOOR_ID, DOOR_STATIS, SENSOR_DISTANCE, REGISTER_DATETIME
+ *     DOOR_SENSOR_LOG_ID, DOOR_ID, DOOR_STATUS, SENSOR_DISTANCE, REGISTER_DATETIME
  *
  * [sequence]
  *     

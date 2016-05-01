@@ -16,7 +16,7 @@ CREATE TABLE DOOR_SENSOR_LOG
 (
 	DOOR_SENSOR_LOG_ID INT NOT NULL AUTO_INCREMENT COMMENT 'ドアセンサーログID : 連番として自動採番される。',
 	DOOR_ID INT NOT NULL COMMENT 'ドアID : ひとつひとつのドアに割り当てられたID。',
-	DOOR_STATIS BOOLEAN NOT NULL COMMENT 'ドアステータス : ドアが閉まっている時がfalse、空いている時がtrue',
+	DOOR_STATUS BOOLEAN NOT NULL COMMENT 'ドアステータス : ドアが閉まっている時がfalse、空いている時がtrue',
 	SENSOR_DISTANCE INT NOT NULL COMMENT 'センサー距離 : ドアとセンサーとの距離。センサーの位置によって空いている、閉まっているの判断基準が変わる。距離だけでは、判断できない。',
 	REGISTER_DATETIME DATETIME NOT NULL COMMENT '登録日時',
 	PRIMARY KEY (DOOR_SENSOR_LOG_ID)

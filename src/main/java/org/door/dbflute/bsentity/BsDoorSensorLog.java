@@ -36,7 +36,7 @@ import org.door.dbflute.exentity.*;
  *     DOOR_SENSOR_LOG_ID
  * 
  * [column]
- *     DOOR_SENSOR_LOG_ID, DOOR_ID, DOOR_STATIS, SENSOR_DISTANCE, REGISTER_DATETIME
+ *     DOOR_SENSOR_LOG_ID, DOOR_ID, DOOR_STATUS, SENSOR_DISTANCE, REGISTER_DATETIME
  * 
  * [sequence]
  *     
@@ -63,12 +63,12 @@ import org.door.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer doorSensorLogId = entity.getDoorSensorLogId();
  * Integer doorId = entity.getDoorId();
- * Boolean doorStatis = entity.getDoorStatis();
+ * Boolean doorStatus = entity.getDoorStatus();
  * Integer sensorDistance = entity.getSensorDistance();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * entity.setDoorSensorLogId(doorSensorLogId);
  * entity.setDoorId(doorId);
- * entity.setDoorStatis(doorStatis);
+ * entity.setDoorStatus(doorStatus);
  * entity.setSensorDistance(sensorDistance);
  * entity.setRegisterDatetime(registerDatetime);
  * = = = = = = = = = =/
@@ -92,8 +92,8 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     /** (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door} */
     protected Integer _doorId;
 
-    /** (ドアステータス)DOOR_STATIS: {NotNull, BIT} */
-    protected Boolean _doorStatis;
+    /** (ドアステータス)DOOR_STATUS: {NotNull, BIT} */
+    protected Boolean _doorStatus;
 
     /** (センサー距離)SENSOR_DISTANCE: {NotNull, INT(10)} */
     protected Integer _sensorDistance;
@@ -192,7 +192,7 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_doorSensorLogId));
         sb.append(dm).append(xfND(_doorId));
-        sb.append(dm).append(xfND(_doorStatis));
+        sb.append(dm).append(xfND(_doorStatus));
         sb.append(dm).append(xfND(_sensorDistance));
         sb.append(dm).append(xfND(_registerDatetime));
         if (sb.length() > dm.length()) {
@@ -262,23 +262,23 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] (ドアステータス)DOOR_STATIS: {NotNull, BIT} <br>
+     * [get] (ドアステータス)DOOR_STATUS: {NotNull, BIT} <br>
      * ドアが閉まっている時がfalse、空いている時がtrue
-     * @return The value of the column 'DOOR_STATIS'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'DOOR_STATUS'. (basically NotNull if selected: for the constraint)
      */
-    public Boolean getDoorStatis() {
-        checkSpecifiedProperty("doorStatis");
-        return _doorStatis;
+    public Boolean getDoorStatus() {
+        checkSpecifiedProperty("doorStatus");
+        return _doorStatus;
     }
 
     /**
-     * [set] (ドアステータス)DOOR_STATIS: {NotNull, BIT} <br>
+     * [set] (ドアステータス)DOOR_STATUS: {NotNull, BIT} <br>
      * ドアが閉まっている時がfalse、空いている時がtrue
-     * @param doorStatis The value of the column 'DOOR_STATIS'. (basically NotNull if update: for the constraint)
+     * @param doorStatus The value of the column 'DOOR_STATUS'. (basically NotNull if update: for the constraint)
      */
-    public void setDoorStatis(Boolean doorStatis) {
-        registerModifiedProperty("doorStatis");
-        _doorStatis = doorStatis;
+    public void setDoorStatus(Boolean doorStatus) {
+        registerModifiedProperty("doorStatus");
+        _doorStatus = doorStatus;
     }
 
     /**
