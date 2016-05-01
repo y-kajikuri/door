@@ -23,17 +23,14 @@ import org.lastaflute.web.response.next.HtmlNext;
  */
 public interface DoorHtmlPath {
 
+    /** The path of the HTML: /door/getdoor.html */
+    HtmlNext path_Door_GetdoorHtml = new HtmlNext("/door/getdoor.html");
+
     /** The path of the HTML: /error/show_errors.html */
     HtmlNext path_Error_ShowErrorsHtml = new HtmlNext("/error/show_errors.html");
 
-    /** The path of the HTML: /insert/insert.jsp */
-    HtmlNext path_Insert_InsertJsp = new HtmlNext("/insert/insert.jsp");
-
     /** The path of the HTML: /mypage/mypage.html */
     HtmlNext path_Mypage_MypageHtml = new HtmlNext("/mypage/mypage.html");
-
-    /** The path of the HTML: /select/select.jsp */
-    HtmlNext path_Select_SelectJsp = new HtmlNext("/select/select.jsp");
 
     /** The path of the HTML: /signin/signin.html */
     HtmlNext path_Signin_SigninHtml = new HtmlNext("/signin/signin.html");

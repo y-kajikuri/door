@@ -12,6 +12,7 @@ import org.door.mylasta.action.DoorHtmlPath;
 import org.lastaflute.web.Execute;
 import org.lastaflute.web.LastaAction;
 import org.lastaflute.web.response.HtmlResponse;
+import org.lastaflute.web.response.JsonResponse;
 
 public class SelectAction extends LastaAction implements DoorHtmlPath {
 
@@ -25,12 +26,21 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
     //                                                                             Execute
     //                                                                             =======
     @Execute
-    public HtmlResponse index(SelectForm form) {
+    public JsonResponse index(SelectForm form) {
         ListResultBean<Door> doorList = selectDoorStatusList(form);
         List<SelectRowBean> beans = mappingToRowList(doorList);
-        return asHtml(path_Select_SelectJsp).renderWith(data -> {
-            data.register("bean", beans);
-        });
+        return asJson(beans);
+    }
+
+    @Execute
+    /**
+     * トイレの状態を表示するためのアクションメソッド
+     * JSPをつくるのが面倒だったのでただのhtmlを返してます。
+     * API実行はhtmlからjsでjsonを取得してます。
+     * @return
+     */
+    public HtmlResponse getdoorstate() {
+        return asHtml(path_Door_GetdoorHtml);
     }
 
     private ListResultBean<Door> selectDoorStatusList(SelectForm form) {
@@ -39,7 +49,7 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
             cb.specify().columnDoorName();
             cb.setupSelect_DoorSensorLogAsLatest();
             cb.specify().specifyDoorSensorLogAsLatest().columnDoorStatus();
-            if (isEmpty(form.doorId)) {
+            if (!isEmpty(form.doorId)) {
                 cb.acceptPK(Integer.parseInt(form.doorId));
             }
         });
