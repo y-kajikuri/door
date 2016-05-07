@@ -28,9 +28,8 @@ import org.door.dbflute.exentity.*;
 
 /**
  * The entity of (ドアセンサーログ)DOOR_SENSOR_LOG as TABLE. <br>
- * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
- * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
- * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
+ * センサーが取得した距離データを保持する。<br>
+ * ドアIDと距離から、ドアが開いているかどうかの判定を行い、ドアステータスで管理している。
  * <pre>
  * [primary-key]
  *     DOOR_SENSOR_LOG_ID
@@ -243,7 +242,10 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
 
     /**
      * [get] (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door} <br>
-     * ひとつひとつのドアに割り当てられたID。
+     * ひとつひとつのドアに割り当てられたID。<br>
+     * 階数+ドアの番号となっている。<br>
+     * ドアの番号は、部屋の入り口から見て左回りに順番にインクリメント。<br>
+     * ex: 6階、入って一番右端にあるドアID =&gt; 61
      * @return The value of the column 'DOOR_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDoorId() {
@@ -253,7 +255,10 @@ public abstract class BsDoorSensorLog extends AbstractEntity implements DomainEn
 
     /**
      * [set] (ドアID)DOOR_ID: {IX, NotNull, INT(10), FK to door} <br>
-     * ひとつひとつのドアに割り当てられたID。
+     * ひとつひとつのドアに割り当てられたID。<br>
+     * 階数+ドアの番号となっている。<br>
+     * ドアの番号は、部屋の入り口から見て左回りに順番にインクリメント。<br>
+     * ex: 6階、入って一番右端にあるドアID =&gt; 61
      * @param doorId The value of the column 'DOOR_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDoorId(Integer doorId) {

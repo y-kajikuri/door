@@ -28,6 +28,7 @@ import org.door.dbflute.exentity.*;
 
 /**
  * The entity of (ドア)DOOR as TABLE. <br>
+ * ドアの情報を保持する。設置したセンサーの位置によって最小値、最大値を調整する。
  * <pre>
  * [primary-key]
  *     DOOR_ID
@@ -240,7 +241,10 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
     //                                                                            ========
     /**
      * [get] (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG} <br>
-     * ひとつひとつのドアに割り当てられたID。
+     * ひとつひとつのドアに割り当てられたID。<br>
+     * 階数+ドアの番号となっている。<br>
+     * ドアの番号は、部屋の入り口から見て左回りに順番にインクリメント。<br>
+     * ex: 6階、入って一番右端にあるドアID =&gt; 61
      * @return The value of the column 'DOOR_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDoorId() {
@@ -250,7 +254,10 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
 
     /**
      * [set] (ドアID)DOOR_ID: {PK, ID, NotNull, INT(10), FK to DOOR_SENSOR_LOG} <br>
-     * ひとつひとつのドアに割り当てられたID。
+     * ひとつひとつのドアに割り当てられたID。<br>
+     * 階数+ドアの番号となっている。<br>
+     * ドアの番号は、部屋の入り口から見て左回りに順番にインクリメント。<br>
+     * ex: 6階、入って一番右端にあるドアID =&gt; 61
      * @param doorId The value of the column 'DOOR_ID'. (basically NotNull if update: for the constraint)
      */
     public void setDoorId(Integer doorId) {
@@ -260,7 +267,7 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
 
     /**
      * [get] (ドア名)DOOR_NAME: {VARCHAR(10)} <br>
-     * ドアの名前。
+     * ドアの名前。お気に入りの名前をつければ愛着が湧くはず。。。
      * @return The value of the column 'DOOR_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getDoorName() {
@@ -270,7 +277,7 @@ public abstract class BsDoor extends AbstractEntity implements DomainEntity {
 
     /**
      * [set] (ドア名)DOOR_NAME: {VARCHAR(10)} <br>
-     * ドアの名前。
+     * ドアの名前。お気に入りの名前をつければ愛着が湧くはず。。。
      * @param doorName The value of the column 'DOOR_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDoorName(String doorName) {

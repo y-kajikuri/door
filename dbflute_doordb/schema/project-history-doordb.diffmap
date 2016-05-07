@@ -1,4 +1,54 @@
 map:{
+    ; 2016/05/07 16:44:28 = map:{
+        ; diffDate = 2016/05/07 16:44:28
+        ; tableDiff = map:{
+            ; door = map:{
+                ; tableName = door
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; DOOR_NAME = map:{
+                        ; columnName = DOOR_NAME
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; DOOR_NAME = map:{
+                        ; constraintName = DOOR_NAME
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/05/07 16:32:56 = map:{
+        ; diffDate = 2016/05/07 16:32:56
+        ; tableDiff = map:{
+            ; door = map:{
+                ; tableName = door
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; DOOR_NAME = map:{
+                        ; columnName = DOOR_NAME
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; DOOR_NAME = map:{
+                        ; constraintName = DOOR_NAME
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
     ; 2016/04/30 20:11:30 = map:{
         ; diffDate = 2016/04/30 20:11:30
         ; tableDiff = map:{
