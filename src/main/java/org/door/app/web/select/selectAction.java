@@ -11,9 +11,12 @@ import org.door.dbflute.exentity.Door;
 import org.door.mylasta.action.DoorHtmlPath;
 import org.lastaflute.web.Execute;
 import org.lastaflute.web.LastaAction;
-import org.lastaflute.web.response.HtmlResponse;
 import org.lastaflute.web.response.JsonResponse;
 
+/**
+ * DBから最新のセンサーの状態を取得するAPIのActionクラス
+ * @author y-kajikuri
+ */
 public class SelectAction extends LastaAction implements DoorHtmlPath {
 
     // ===================================================================================
@@ -26,21 +29,10 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
     //                                                                             Execute
     //                                                                             =======
     @Execute
-    public JsonResponse index(SelectForm form) {
+    public JsonResponse<List<SelectRowBean>> index(SelectForm form) {
         ListResultBean<Door> doorList = selectDoorStatusList(form);
         List<SelectRowBean> beans = mappingToRowList(doorList);
         return asJson(beans);
-    }
-
-    @Execute
-    /**
-     * トイレの状態を表示するためのアクションメソッド
-     * JSPをつくるのが面倒だったのでただのhtmlを返してます。
-     * API実行はhtmlからjsでjsonを取得してます。
-     * @return
-     */
-    public HtmlResponse getdoorstatus() {
-        return asHtml(path_Door_GetdoorHtml);
     }
 
     private ListResultBean<Door> selectDoorStatusList(SelectForm form) {

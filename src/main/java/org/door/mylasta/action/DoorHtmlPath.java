@@ -26,8 +26,8 @@ public interface DoorHtmlPath {
     /** The path of the HTML: /error/show_errors.html */
     HtmlNext path_Error_ShowErrorsHtml = new HtmlNext("/error/show_errors.html");
 
-    /** The path of the HTML: /mypage/mypage.html */
-    HtmlNext path_Mypage_MypageHtml = new HtmlNext("/mypage/mypage.html");
+    /** The path of the HTML: /insert/insert.html */
+    HtmlNext path_Insert_InsertHtml = new HtmlNext("/insert/insert.html");
 
     /** The path of the HTML: /status/status.html */
     HtmlNext path_Status_StatusHtml = new HtmlNext("/status/status.html");

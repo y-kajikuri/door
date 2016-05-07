@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * センサーから値をDBに追加するAPIのActionクラス
  * @author y-kajikuri
  */
 public class InsertAction extends LastaAction implements DoorHtmlPath {
@@ -36,7 +37,7 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
     @Execute
     public HtmlResponse index(InsertForm form) {
         insertSensorLog(form);
-        return asHtml(path_Mypage_MypageHtml);
+        return asHtml(path_Insert_InsertHtml);
     }
 
     public void insertSensorLog(InsertForm form) {
@@ -59,11 +60,5 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
             cb.acceptPK(doorId);
         }).get();
         return (distance < door.getMin().intValue() || door.getMax().intValue() < distance);
-    }
-
-    private InsertRowBean setBean() {
-        InsertRowBean bean = new InsertRowBean();
-        bean.messege = "できたよ";
-        return bean;
     }
 }
