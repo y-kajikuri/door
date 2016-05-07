@@ -39,7 +39,7 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
      * API実行はhtmlからjsでjsonを取得してます。
      * @return
      */
-    public HtmlResponse getdoorstate() {
+    public HtmlResponse getdoorstatus() {
         return asHtml(path_Door_GetdoorHtml);
     }
 
@@ -68,7 +68,7 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
         bean.doorId = door.getDoorId();
         bean.doorName = door.getDoorName();
         door.getDoorSensorLogAsLatest().ifPresent(log -> {
-            bean.doorStatus = log.getDoorStatus() ? "空いてるよー" : "閉まってるよ。もうちょと我慢";
+            bean.doorStatus = log.getDoorStatus() ? "空いてるよー" : "閉まってるよー";
         });
         return bean;
     }

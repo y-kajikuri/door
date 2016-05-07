@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$.ajax({
 	   type: "POST",
 	   dataType:'json',
-	   url: "http://localhost:9001/door/select",
+	   url: "http://10.4.129.241:9001/door/select",
 	   success: function(msg){
 	     console.log(msg[0]['doorStatus']);
 	     var state = msg[0]['doorStatus'];

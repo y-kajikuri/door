@@ -36,10 +36,7 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
     @Execute
     public HtmlResponse index(InsertForm form) {
         insertSensorLog(form);
-        InsertRowBean bean = setBean();
-        return asHtml(path_Insert_InsertJsp).renderWith(data -> {
-            data.register("bean", bean);
-        });
+        return asHtml(path_Mypage_MypageHtml);
     }
 
     public void insertSensorLog(InsertForm form) {
@@ -61,7 +58,7 @@ public class InsertAction extends LastaAction implements DoorHtmlPath {
             cb.specify().columnMax();
             cb.acceptPK(doorId);
         }).get();
-        return (distance < door.getMin().intValue() && door.getMax().intValue() < distance);
+        return (distance < door.getMin().intValue() || door.getMax().intValue() < distance);
     }
 
     private InsertRowBean setBean() {
