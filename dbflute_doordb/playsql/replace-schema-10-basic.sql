@@ -4,7 +4,7 @@
 
 CREATE TABLE DOOR
 (
-	DOOR_ID INT NOT NULL AUTO_INCREMENT COMMENT 'ドアID : ひとつひとつのドアに割り当てられたID。
+	DOOR_ID INT NOT NULL COMMENT 'ドアID : ひとつひとつのドアに割り当てられたID。
 階数+ドアの番号となっている。
 ドアの番号は、部屋の入り口から見て左回りに順番にインクリメント。
 ex: 6階、入って一番右端にあるドアID => 61',

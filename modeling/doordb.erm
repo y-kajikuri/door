@@ -115,7 +115,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2013-07-01 19:43:02</creation_date>
-			<updated_date>2016-05-07 17:00:07</updated_date>
+			<updated_date>2016-05-07 17:13:09</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -557,7 +557,7 @@
 					<type>integer</type>
 					<constraint></constraint>
 					<default_value></default_value>
-					<auto_increment>true</auto_increment>
+					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
