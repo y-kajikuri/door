@@ -41,6 +41,7 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
             cb.specify().columnDoorName();
             cb.setupSelect_DoorSensorLogAsLatest();
             cb.specify().specifyDoorSensorLogAsLatest().columnDoorStatus();
+            cb.specify().specifyDoorSensorLogAsLatest().columnRegisterDatetime();
             if (!isEmpty(form.doorId)) {
                 cb.acceptPK(Integer.parseInt(form.doorId));
             }
@@ -60,7 +61,8 @@ public class SelectAction extends LastaAction implements DoorHtmlPath {
         bean.doorId = door.getDoorId();
         bean.doorName = door.getDoorName();
         door.getDoorSensorLogAsLatest().ifPresent(log -> {
-            bean.doorStatus = log.getDoorStatus() ? "空いてるよー" : "閉まってるよー";
+            bean.doorStatus = log.getDoorStatus() ? "空いてるよ!" : "閉まってるよー";
+            bean.registerDateTime = log.getRegisterDatetime();
         });
         return bean;
     }
